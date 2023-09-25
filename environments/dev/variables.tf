@@ -4,11 +4,31 @@ variable "region" {
   default     = ""
 }
 
+variable "azs" {
+  type    = list(string)
+  default = []
+}
+
 variable "environment" {
   description = "Dev/Staging = 1 NATGW & EIP. Prod = 1 NATGW & EIP per public subnet"
   type        = string
   default     = ""
 }
+
+variable "vpc-cidr" {
+  description = "VPC CIDR"
+  type        = string
+  default     = ""
+}
+
+variable "public-subnets" {
+  type = list(string)
+}
+
+variable "private-subnets" {
+  type = list(string)
+}
+
 
 variable "instance-type" {
   type    = string
