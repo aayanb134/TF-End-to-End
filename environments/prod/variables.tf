@@ -10,32 +10,10 @@ variable "environment" {
   default     = ""
 }
 
-variable "vpc-cidr" {
-  description = "VPC CIDR Block"
-  type        = string
-  default     = ""
-}
-
-variable "azs" {
-  type    = list(string)
-  default = [""]
-}
-
-variable "public-subnets" {
-  type    = list(string)
-  default = [""]
-}
-
-variable "private-subnets" {
-  type    = list(string)
-  default = [""]
-}
-
 variable "instance-type" {
   type    = string
   default = ""
 }
-
 
 variable "key-name" {
   type    = string
@@ -46,16 +24,4 @@ variable "aws-region" {
   description = "Region in which AWS Resources will be deployed"
   type        = string
   default     = ""
-}
-
-#Backend-------------------------------
-
-variable "bucket-name" {
-  type    = string
-  default = ""
-}
-
-variable "dynamodb-table" {
-  type    = string
-  default = "prod"
 }
