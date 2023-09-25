@@ -13,8 +13,8 @@ module "WebApp" {
 
   vpc-id            = module.VPC.vpc-id
   environment       = var.environment
-  public-subnet-id  = module.VPC.public-subnet-ids
-  private-subnet-id = module.VPC.private-subnet-ids
+  public-subnet-id  = join(",", module.VPC.public-subnet-ids)
+  private-subnet-id = join(",", module.VPC.private-subnet-ids)
   instance-type     = var.instance-type
   key-name          = var.key-name
 }
