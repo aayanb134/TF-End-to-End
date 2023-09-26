@@ -1,9 +1,9 @@
 resource "aws_instance" "nginx-webapp" {
-  count                  = length(var.private-subnet-id)
+  count                  = 2
   ami                    = data.aws_ami.amzlinux2.id
   instance_type          = var.instance-type
   subnet_id              = var.private-subnet-id
-  vpc_security_group_ids = [aws_security_group.webapp-alb-sg]
+  vpc_security_group_ids = [aws_security_group.webapp-alb-sg.id]
   key_name               = var.key-name
 
   user_data = <<EOT
@@ -99,7 +99,7 @@ resource "aws_lb_target_group" "webapp-alb-target-group" {
 }
 
 resource "aws_lb_target_group_attachment" "webapp-alb-target-group-attachment" {
-  count            = length(var.private-subnet-id)
+  count            = 2
   target_group_arn = aws_lb_target_group.webapp-alb-target-group.arn
   target_id        = aws_instance.nginx-webapp[count.index].id
   port             = 80
