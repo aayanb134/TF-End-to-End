@@ -68,7 +68,7 @@ resource "aws_lb" "webapp-alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.webapp-alb-sg.id]
-  subnets            = var.public-subnet
+  subnets            = var.public-subnet-id
 }
 
 resource "aws_lb_listener" "webapp-alb-listener" {

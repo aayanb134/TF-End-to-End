@@ -11,7 +11,7 @@ variable "instance-type" {
 
 variable "public-subnet" {
   type    = list(string)
-  default = []
+  default = [""]
 }
 
 variable "public-subnet-id" {
