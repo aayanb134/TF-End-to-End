@@ -2,7 +2,7 @@ resource "aws_instance" "nginx-webapp" {
   count                  = 2
   ami                    = data.aws_ami.amzlinux2.id
   instance_type          = var.instance-type
-  subnet_id              = var.private-subnet-id
+  subnet_id              = var.private-subnet-id[count.index]
   vpc_security_group_ids = [aws_security_group.webapp-alb-sg.id]
   key_name               = var.key-name
 

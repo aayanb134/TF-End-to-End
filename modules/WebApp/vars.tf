@@ -16,8 +16,8 @@ variable "public-subnet" {
 
 variable "public-subnet-id" {
   description = "Public Subnet IDs"
-  type        = string
-  default     = ""
+  type        = list(string)
+  default     = [""]
 }
 
 variable "private-subnet" {
@@ -27,8 +27,8 @@ variable "private-subnet" {
 
 variable "private-subnet-id" {
   description = "Private Subnet IDs"
-  type        = string
-  default     = ""
+  type        = list(string)
+  default     = [""]
 }
 
 variable "vpc-id" {
